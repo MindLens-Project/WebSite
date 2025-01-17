@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import mindLensIcon from "./assets/mindlensicon.webp";
+import ReactGA from 'react-ga4';
+
+ReactGA.initialize('G-EKL9JK4DLK');
+const handleButtonClick = () => {
+	ReactGA.event({
+		category: 'User',
+		action: 'Clicked a Link'
+	});
+};
 
 const App = () => {
+	useEffect(() => {
+		ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+	}, []);
 	return (
 		<div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
 			<Helmet>
@@ -35,8 +47,8 @@ const App = () => {
 				Quelque liens utiles :
 			</h3>
 			<ul className="text-lg max-w-prose text-center">
-				<li>Mail : <a href="mailto:contact@mindlens.fr" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">contact@mindlens.fr</a></li>
-				<li>GitHub : <a href="http://github.com/Mindlens-Project" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">MindLens-Project</a></li>
+				<li>Mail : <a onClick={handleButtonClick()} href="mailto:contact@mindlens.fr" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">contact@mindlens.fr</a></li>
+				<li>GitHub : <a onClick={handleButtonClick()} href="http://github.com/Mindlens-Project" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">MindLens-Project</a></li>
 			</ul>
 			<footer className="mt-10 text-center font-bold">
 				&copy; 2025 MindLens Project. Tous droits réservés.

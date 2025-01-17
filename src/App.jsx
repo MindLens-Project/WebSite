@@ -1,5 +1,6 @@
 import React from "react";
-import mindLensIcon from "./assets/mindlensicon.jpg";
+import { Helmet } from "react-helmet";
+import mindLensIcon from "./assets/mindlensicon.webp";
 
 const App = () => {
 	return (

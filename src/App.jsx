@@ -5,6 +5,11 @@ import mindLensIcon from "./assets/mindlensicon.webp";
 const App = () => {
 	return (
 		<div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
+			<Helmet>
+				<title>Mindlens Project</title>
+				<meta name="description" content="MindLens Project Presentation Page" />
+				<meta name="keywords" content="IA, NVIDIA, diy, project, mindlens, llm" />
+			</Helmet>
 			<img src={mindLensIcon} alt="MindLens Icon" className="w-32 h-32 mb-6" />
 			<h1 className="text-4xl font-bold mb-4">MindLens</h1>
 			<p className="text-lg max-w-prose text-center mb-6">
